@@ -39,7 +39,7 @@ export const CreateImages = () => {
     if (form.prompt) {
       try {
         setImage(true)
-        const resp = await fetch('http://localhost:3030/api/v1/images', {
+        const resp = await fetch('https://openai-showcase.onrender.com/api/v1/images', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ export const CreateImages = () => {
     if (form.prompt && form.photo) {
       setIsLoading(true)
       try {
-        const resp = await fetch('http://localhost:3030/api/v1/post', {
+        const resp = await fetch('https://openai-showcase.onrender.com/api/v1/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

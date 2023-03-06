@@ -6,7 +6,6 @@ import {
   FormControl,
   FormHelperText,
   FormLabel,
-  Link,
   Stack,
   Text,
   Textarea
@@ -23,7 +22,7 @@ export const CreateText = () => {
     if (prompt) {
       setLoading(true)
       try {
-        const resp = await fetch('http://localhost:3030/api/v1/text', {
+        const resp = await fetch('https://openai-showcase.onrender.com/api/v1/text', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

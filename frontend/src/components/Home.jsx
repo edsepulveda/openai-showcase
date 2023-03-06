@@ -11,7 +11,7 @@ const RenderPosts = ({ data, message }) => {
 }
 
 export const Home = () => {
-  const DEV_URL = 'http://localhost:3030/api/v1/post'
+  const DEV_URL = 'https://openai-showcase.onrender.com/api/v1/post'
 
   const [getPosts, setGetPosts] = useState(null)
   const [loader, setLoader] = useState(false)
