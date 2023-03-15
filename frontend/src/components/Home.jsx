@@ -9,9 +9,11 @@ import {
   Flex
 } from '@chakra-ui/react'
 
-const RenderPosts = ({ data, message }) => {
+const RenderPosts = ({ data, message, isLoading }) => {
   if (data?.length > 0) {
-    return data.map((item) => <Cards key={item._id} {...item} />)
+    return data.map((item) => (
+      <Cards loader={isLoading} key={item._id} {...item} />
+    ))
   } else {
     return <Text color='blue.500'>{message}</Text>
   }
@@ -65,9 +67,6 @@ export const Home = () => {
           DALLE
         </Link>
       </Heading>
-      <Flex mt={10} justify='center' align='center'>
-        {loader && <Spinner colorScheme='facebook' size='xl' thickness='4px' speed='0.65s' emptyColor='gray.300' color='blue.500' />}
-      </Flex>
       <SimpleGrid
         p={6}
         spacing={10}
@@ -76,7 +75,11 @@ export const Home = () => {
         mb='10'
         mt='10'
       >
-        <RenderPosts data={getPosts} message='No Posts Found' />
+        <RenderPosts
+          isLoading={!loader}
+          data={getPosts}
+          message='No Posts Found'
+        />
       </SimpleGrid>
     </>
   )
